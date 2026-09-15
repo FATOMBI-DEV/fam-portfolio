@@ -1,0 +1,23 @@
+RewriteEngine On
+RewriteBase /
+
+# Compatibilité ancienne route /portfolio/* -> /...
+RewriteRule ^portfolio/?$ / [R=301,L]
+RewriteRule ^portfolio/(.*)$ /$1 [R=301,L,NE]
+
+# Si le fichier ou dossier existe, on le sert directement
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Anciennes URL avec .php -> routes propres
+RewriteCond %{THE_REQUEST} \s/([^\s?]+)\.php [NC]
+RewriteRule ^ %1 [R=301,L,NE]
+
+# Pages statiques et sections du portfolio
+RewriteRule ^/?$ /index.php [L,QSA]
+RewriteRule ^index/?$ /index.php [L,QSA]
+RewriteRule ^(home|about|skills|projects|resume|thesis|contact)/?$ /index.php?section=$1 [L,QSA]
+RewriteRule ^thesis/?$ /thesis.php [L,QSA]
+RewriteRule ^download-cv/?$ /download-cv.php [L,QSA]
+RewriteRule ^api/contact/?$ /api/contact.php [L,QSA]

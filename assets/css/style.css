@@ -1,0 +1,39 @@
+html { scroll-behavior: smooth; }
+
+.page-section { animation: fadeIn .5s ease-in-out; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pulse-slow { animation: pulseSlow 8s ease-in-out infinite; }
+@keyframes pulseSlow {
+  0%, 100% { opacity: .5; transform: scale(1); }
+  50%      { opacity: .8; transform: scale(1.08); }
+}
+
+.nav-link.active,
+.nav-link[class*="bg-white/15"] {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+}
+
+.skill-bar { transition: width 1.2s cubic-bezier(.22,1,.36,1); }
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-card.hidden { display: none; }
+
+.filter-btn.active {
+  background: rgba(255,255,255,.9) !important;
+  color: #1e40af !important;
+  font-weight: 600;
+}
+
+#thesisViewer iframe { border: 0; }
