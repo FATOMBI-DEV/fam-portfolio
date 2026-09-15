@@ -1,7 +1,6 @@
 /.env
 /vendor
 /node_modules
-/dist
 .idea
 /.vscode
 /.DS_Store
